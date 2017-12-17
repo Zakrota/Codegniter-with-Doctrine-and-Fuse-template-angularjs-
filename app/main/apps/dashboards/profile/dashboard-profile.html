@@ -1,0 +1,90 @@
+<div id="dashboard-profile" class="page-layout simple fullwidth doc-page element-doc-page">
+
+
+    <div class="content" ng-init="vm.displayData()">
+
+        <div class="add-task-button">
+            <md-button class="md-accent md-raised" ng-click="vm.openTaskDialog($event)" aria-label="ADD TASK"
+                       translate="POST.ADD_POST" translate-attr-aria-label="POST.ADD_POST" >
+                ADD TASK
+            </md-button>
+        </div>
+        <div class="col-md-10 col-md-offset-2">
+
+
+            <div class="white-bg md-whiteframe-4dp">
+                <table class="dataTable row-border hover" datatable="ng">
+                    <thead>
+                    <tr>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Title</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Description</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text">
+                            <div class="table-header">
+                                <span class="column-title">Category</span>
+                            </div>
+                        </th>
+                        <th class="secondary-text sorting_disabled" rowspan="1" colspan="1" style="width: 400px;"
+                            aria-label=" Actions">
+                            <div class="table-header">
+                                <span class="column-title" style="text-align: center;">Actions</span>
+                            </div>
+                        </th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-repeat="x in vm.names">
+
+                        <td>{{x.title }}</td>
+                        <td>{{x.description }}</td>
+                        <td>{{x.category_id.name }}</td>
+                        <td>
+
+                            <md-button class="md-raised edit-button"
+
+                                       target="_blank">
+                                <mat-icon _ngcontent-c32="" class=" mat-icon icon-view-stream" role="img"
+                                          aria-hidden="true">
+                                </mat-icon>
+
+                            </md-button>
+
+                            <md-button class="md-raised edit-button"
+                                      ng-click="vm.openEditTaskDialog(x)"
+                                       target="_blank">
+                                <mat-icon _ngcontent-c32="" class=" mat-icon icon-tooltip-edit" role="img"
+                                          aria-hidden="true">
+                                </mat-icon>
+
+                            </md-button>
+
+                            <button class="md-raised md-warn md-button icon-delete md-default-theme md-ink-ripple "
+                                    type="button"  ng-click="vm.delete_item(x)" >
+
+                                <div class="md-ripple-container "
+                                     style="">
+
+                                </div>
+                            </button>
+
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- / CONTENT -->
+
+    </div>
